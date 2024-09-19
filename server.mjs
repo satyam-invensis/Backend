@@ -92,7 +92,7 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'LoginPage','login.html'));
 });
 
-app.post('/predict', (req, res) => {
+app.post('https://backend-exbh.vercel.app/predict', (req, res) => {
     const inputText = req.body.description ? req.body.description.trim().toLowerCase() : '';
 
     if (!inputText) {
@@ -141,7 +141,7 @@ const userSchema = new mongoose.Schema({
 const userModel = mongoose.model('User', userSchema);
 
 // Signup Route
-app.post('/signup', async (req, res) => {
+app.post('https://backend-exbh.vercel.app/signup', async (req, res) => {
     const { fullName, username, email, password } = req.body;
 
     if (!fullName || !username || !email || !password) {
@@ -180,7 +180,7 @@ app.post('/signup', async (req, res) => {
 });
 
 // Login Route
-app.post('/login', async (req, res) => {
+app.post('https://backend-exbh.vercel.app/login', async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
